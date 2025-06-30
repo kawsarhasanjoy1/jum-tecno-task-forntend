@@ -27,6 +27,11 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="/moods/create-mood">
+                Crate moods
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/moods">
                 Mood
               </a>
