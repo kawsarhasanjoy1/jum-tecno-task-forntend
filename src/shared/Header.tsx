@@ -1,6 +1,7 @@
 import React from "react";
 
 const Header = () => {
+  const token = localStorage.getItem("accessToken");
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -30,16 +31,22 @@ const Header = () => {
                 Mood
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/login">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/register">
-                Register
-              </a>
-            </li>
+            {token ? (
+              ""
+            ) : (
+              <>
+                <li className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Login
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/register">
+                    Register
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
           <form className="d-flex">
             <input

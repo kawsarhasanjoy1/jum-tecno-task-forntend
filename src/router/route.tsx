@@ -4,6 +4,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import MoodForm from "../pages/moods/MoodForm";
 import MoodHistory from "../pages/moods/MoodHistory";
+import PrivateRoute from "../protected/PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -11,11 +12,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "moods/create-mood",
-        element: <MoodForm />,
+        element: (
+          <PrivateRoute>
+            <MoodForm />
+          </PrivateRoute>
+        ),
       },
       {
         path: "moods",
-        element: <MoodHistory />,
+        element: (
+          <PrivateRoute>
+            <MoodHistory />
+          </PrivateRoute>
+        ),
       },
     ],
   },
